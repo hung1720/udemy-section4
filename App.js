@@ -18,3 +18,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+// 1. Tạo ra 2 folders components và screens
+// 2. Folders screens sẽ chứa các màn hình ( StartGameScreen, GameScreen, GameOverScreen)
+// + StartGameScreen màn hình đầu tiên đoán, và bắt đầu trờ chơi
+// + GameOverScreen màn hình khi trờ chơi kết thúc
+// 3. StartGameScreen - function StartGameScreen()
