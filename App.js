@@ -1,22 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import StartGameScreen from './screens/StartGameScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <StartGameScreen />
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
 });
 
 // 1. Tạo ra 2 folders components và screens
@@ -24,3 +16,7 @@ const styles = StyleSheet.create({
 // + StartGameScreen màn hình đầu tiên đoán, và bắt đầu trờ chơi
 // + GameOverScreen màn hình khi trờ chơi kết thúc
 // 3. StartGameScreen - function StartGameScreen()
+// Section 47 - Setting Up our Screen Components: Mình đã tạo thêm được một vùng View trong StartGameScreen là có 2 thuộc tính là TextInput và BUTTON
+// Section 48 - Creating  Custom Buttons: Mình tạo một file PrimaryButton.js trong components và function PrimaryButton có trong nó
+            // import PrimaryButton vào StartGameScreen để tạo ra 2 button là cofirm và reset
+            // Từ đó import StartGameScreen vào App.js
