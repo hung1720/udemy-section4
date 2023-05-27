@@ -28,4 +28,8 @@ const styles = StyleSheet.create({
 // Section 51 - Configuring the TextInput Field: Thêm keyboardType trong textInput để nhập số 
                                               // autoCapitalize: Tự động điều khiển văn bản sẽ viết hoa
                                               // autoCorrect: Tự động sửa lỗi chính tả thường khi nhập email
+// Section 52 - Adding Visual Feedback to the Buttons: style cho button trong primaryButton.js
+                                                    // android_ripple: tạo hiệu ứng gợn sóng cho button
+                                                    // overFlow: làm cho các phần tử bên trong không bị tràn ra ngoài
+                                                    // Tạo mảng để ios có thể nhận hiệu ứng trong primaryButton.js
 

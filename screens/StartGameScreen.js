@@ -23,11 +23,11 @@ const styles = StyleSheet.create({
     inputContainer: {
         padding: 16,
         marginTop: 100,
-        backgroundColor: '#72063c',
+        backgroundColor: '#4e0329',
         marginHorizontal: 24,
         borderRadius: 8,
-        elevation: 4,
-        shadowColor: 'black',
+        elevation: 4, // android
+        shadowColor: 'black', // ios
         shadowOffset: {width: 0, height: 2},
         shadowRadius: 6,
         shadowOpacity: 0.25
