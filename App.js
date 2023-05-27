@@ -32,4 +32,5 @@ const styles = StyleSheet.create({
                                                     // android_ripple: tạo hiệu ứng gợn sóng cho button
                                                     // overFlow: làm cho các phần tử bên trong không bị tràn ra ngoài
                                                     // Tạo mảng để ios có thể nhận hiệu ứng trong primaryButton.js
+// Section 53 - Improving the Buttons: Style đơn giản cho button hoàn chỉnh
 
