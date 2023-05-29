@@ -1,8 +1,22 @@
 import { StyleSheet, ImageBackground } from 'react-native';
-import StartGameScreen from './screens/StartGameScreen';
 import { LinearGradient } from 'expo-linear-gradient'
 
+import StartGameScreen from './screens/StartGameScreen';
+import GameScreen from './screens/GameScreen';
+import { useState } from 'react';
+
 export default function App() {
+  const [userNumber, setUserNumber] = useState()
+
+  function pickedNumberHandler(pickedNumber){ // được tạo ra ở hàm này
+    setUserNumber(pickedNumber) // set lại giá trị mặc định null khi được truyền vào 
+  }
+
+  let screen = <StartGameScreen onPickNumber={pickedNumberHandler}/> // onPickNumber tạo ra để nhận giá trị từ StartGameScreen.js 
+  if(userNumber) {
+    screen = <GameScreen />
+  }
+
   return (
     <LinearGradient colors={['#4e0329', '#ddb52f']} style={styles.rootScreen}>
       <ImageBackground 
@@ -11,7 +25,7 @@ export default function App() {
         style={styles.rootScreen}
         imageStyle={styles.backgroundImage}
       >
-        <StartGameScreen />
+        {screen}
       </ImageBackground>
     </LinearGradient>
   );
@@ -57,5 +71,16 @@ const styles = StyleSheet.create({
                                         // resizeMode: làm cho hình ảnh phóng to hoặc thu nhỏ phù hợp với kích thước 
                                         // imageStyle: chỉnh style của image
 // Section 57 - Getting Started with the Game Logic: 
-// Section 58 - Handling User Input & Showing an Alert Dialog
-
+// Section 58 - Handling User Input & Showing an Alert Dialog: isNaN trả về một số có hợp lệ hay không
+                                                            // Alert trong react native
+// Section 59 - Switching Screens Programmatically: 
+                                                // App.js
+                                                // Tạo biến userNumber bằng null và setUserNumber để set lại biến userNumber 
+                                                // Khi người dùng nhập số nếu thỏa điều kiện pickedNumberHandler sẽ lấy giá trị và 
+                                                // hàm setUserNumber sẽ điều chỉnh userNumber
+                                                // tiếp theo biến screen StartGameScreen tạo ra thuộc tính onPickNumber để StartGameScreen.js nhận giá trị
+                                                // truyền vào hàm pickedNumberHandler trong thuộc tính onPickNumber
+                                                // StartGameScreen.js
+                                                // truyền hàm onPickNumber vào StartGameScreen và được gọi trong confirmInputHandler
+                                                // để khi người dùng nhấn cofirm sẽ chuyển màn hình
+// Section 60 - Starting Work on the Game Screen: 
