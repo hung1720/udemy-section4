@@ -1,6 +1,5 @@
 import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'
-
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 import { useState } from 'react';
@@ -15,7 +14,7 @@ export default function App() {
 
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} /> // onPickNumber tạo ra để nhận giá trị từ StartGameScreen.js 
   if (userNumber) {
-    screen = <GameScreen />
+    screen = <GameScreen userNumber={userNumber}/>
   }
 
   return (
@@ -93,3 +92,4 @@ const styles = StyleSheet.create({
                                                             // Tạo folder game trong components và file NumberContainer.js trong đó
                                                             // Tạo folder ui trong components và file PrimaryButton.js, Title.js trong đó
                                                             // Sau khi xong bài này khi người dùng nhập vào sẽ tạo biến ngẫu nhiên ở màn hình gameScreen mỗi khi ng dùng nhấn cofirm 
+// Section 65 - adding Game Control Buttons ("+" & "-") to the App: bind()
