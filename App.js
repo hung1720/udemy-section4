@@ -90,4 +90,6 @@ const styles = StyleSheet.create({
 // Section 63 - Managing Colors Globally: Tạo một folder constants và thêm 1 file colors.js
                                       // Và set lại các màu trong các file
 // Section 64 - Creating, Using & Displaying Random Numbers: generateRandomBetween thêm một hàm tạo biến ngẫu nhiện trong file GameScreen
-                                                            // Tạo folder game trong components
+                                                            // Tạo folder game trong components và file NumberContainer.js trong đó
+                                                            // Tạo folder ui trong components và file PrimaryButton.js, Title.js trong đó
+                                                            // Sau khi xong bài này khi người dùng nhập vào sẽ tạo biến ngẫu nhiên ở màn hình gameScreen mỗi khi ng dùng nhấn cofirm 
