@@ -1,31 +1,32 @@
-import { StyleSheet, ImageBackground } from 'react-native';
+import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'
 
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 import { useState } from 'react';
+import Colors from './constants/colors';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState()
 
-  function pickedNumberHandler(pickedNumber){ // được tạo ra ở hàm này
+  function pickedNumberHandler(pickedNumber) { // được tạo ra ở hàm này
     setUserNumber(pickedNumber) // set lại giá trị mặc định null khi được truyền vào 
   }
 
-  let screen = <StartGameScreen onPickNumber={pickedNumberHandler}/> // onPickNumber tạo ra để nhận giá trị từ StartGameScreen.js 
-  if(userNumber) {
+  let screen = <StartGameScreen onPickNumber={pickedNumberHandler} /> // onPickNumber tạo ra để nhận giá trị từ StartGameScreen.js 
+  if (userNumber) {
     screen = <GameScreen />
   }
 
   return (
-    <LinearGradient colors={['#4e0329', '#ddb52f']} style={styles.rootScreen}>
-      <ImageBackground 
+    <LinearGradient colors={[Colors.primary700, Colors.accent500]} style={styles.rootScreen}>
+      <ImageBackground
         source={require('./assets/images/background.png')}
         resizeMode='cover'
         style={styles.rootScreen}
         imageStyle={styles.backgroundImage}
       >
-        {screen}
+        <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
       </ImageBackground>
     </LinearGradient>
   );
@@ -68,19 +69,25 @@ const styles = StyleSheet.create({
                                         // Và tạo thẻ linearGradient, xem thêm trên doc expo
 // Section 56 - Adding a Background Image: Thêm ImageBackground để đặt ảnh nền
                                         // source: Chèn thêm đường dẫn của hình ảnh
-                                        // resizeMode: làm cho hình ảnh phóng to hoặc thu nhỏ phù hợp với kích thước 
+                                        // resizeMode: làm cho hình ảnh phóng to hoặc thu nhỏ phù hợp với kích thước
                                         // imageStyle: chỉnh style của image
 // Section 57 - Getting Started with the Game Logic: 
 // Section 58 - Handling User Input & Showing an Alert Dialog: isNaN trả về một số có hợp lệ hay không
                                                             // Alert trong react native
 // Section 59 - Switching Screens Programmatically: 
                                                 // App.js
-                                                // Tạo biến userNumber bằng null và setUserNumber để set lại biến userNumber 
-                                                // Khi người dùng nhập số nếu thỏa điều kiện pickedNumberHandler sẽ lấy giá trị và 
+                                                // Tạo biến userNumber bằng null và setUserNumber để set lại biến userNumber
+                                                // Khi người dùng nhập số nếu thỏa điều kiện pickedNumberHandler sẽ lấy giá trị và
                                                 // hàm setUserNumber sẽ điều chỉnh userNumber
                                                 // tiếp theo biến screen StartGameScreen tạo ra thuộc tính onPickNumber để StartGameScreen.js nhận giá trị
                                                 // truyền vào hàm pickedNumberHandler trong thuộc tính onPickNumber
                                                 // StartGameScreen.js
                                                 // truyền hàm onPickNumber vào StartGameScreen và được gọi trong confirmInputHandler
                                                 // để khi người dùng nhấn cofirm sẽ chuyển màn hình
-// Section 60 - Starting Work on the Game Screen: 
+// Section 60 - Starting Work on the Game Screen: chỉnh sửa lại GameScreen cho đối thủ sử dụng 
+// Section 61 - Respecting Device Screen Restrictions with the SafeAreaView: cách sử dụng safeAreaView
+// Section 62 - Creating a Title Component: Tạo thêm file Title.js trong folder components và style lại chúng
+// Section 63 - Managing Colors Globally: Tạo một folder constants và thêm 1 file colors.js
+                                      // Và set lại các màu trong các file
+// Section 64 - Creating, Using & Displaying Random Numbers: generateRandomBetween thêm một hàm tạo biến ngẫu nhiện trong file GameScreen
+                                                            // Tạo folder game trong components
