@@ -2,19 +2,31 @@ import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
+import GameOverScreen from './screens/GameOverScreen'
 import { useState } from 'react';
 import Colors from './constants/colors';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState()
+  const [gameIsOver, setGameIsOver] = useState(true)
 
   function pickedNumberHandler(pickedNumber) { // được tạo ra ở hàm này
     setUserNumber(pickedNumber) // set lại giá trị mặc định null khi được truyền vào 
+    setGameIsOver(false)
+  }
+
+  function gameOverHandler() {
+    setGameIsOver(true)
   }
 
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} /> // onPickNumber tạo ra để nhận giá trị từ StartGameScreen.js 
+
   if (userNumber) {
-    screen = <GameScreen userNumber={userNumber}/>
+    screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler}/>
+  }
+
+  if (gameIsOver && userNumber) {
+    screen = <GameOverScreen />
   }
 
   return (
@@ -31,7 +43,6 @@ export default function App() {
   );
 }
 
-const newLocal = '#ffffff';
 const styles = StyleSheet.create({
   rootScreen: {
     flex: 1,
@@ -91,5 +102,6 @@ const styles = StyleSheet.create({
 // Section 64 - Creating, Using & Displaying Random Numbers: generateRandomBetween thêm một hàm tạo biến ngẫu nhiện trong file GameScreen
                                                             // Tạo folder game trong components và file NumberContainer.js trong đó
                                                             // Tạo folder ui trong components và file PrimaryButton.js, Title.js trong đó
-                                                            // Sau khi xong bài này khi người dùng nhập vào sẽ tạo biến ngẫu nhiên ở màn hình gameScreen mỗi khi ng dùng nhấn cofirm 
+                                                            // Sau khi xong bài này khi người dùng nhập vào sẽ tạo biến ngẫu nhiên ở màn hình gameScreen mỗi khi ng dùng nhấn cofirm
 // Section 65 - adding Game Control Buttons ("+" & "-") to the App: bind()
+// Section 66 - Checking for "Game Over": 
